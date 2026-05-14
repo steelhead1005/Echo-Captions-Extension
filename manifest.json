@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
   "name": "Echo360 Fullscreen Captions",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Mirrors the Echo360 active transcript directly over the video player.",
   "browser_specific_settings": {
     "gecko": {
-      "id": "echo360-captions@steelhead.com",
-      "strict_min_version": "89.0",
+      "id": "echo360-captions@yourname.com",
+      "strict_min_version": "142.0",
       "data_collection_permissions": {
         "required": ["none"]
       }

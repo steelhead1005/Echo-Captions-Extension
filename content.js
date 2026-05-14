@@ -102,11 +102,11 @@
         setInterval(() => {
             const icon = document.querySelector('svg[data-test-name="status-filled"]');
 
-            if (!icon) {
+            if (!icon && !hasEverFoundIcon) {
                 if (document.fullscreenElement) {
                     captionText.innerText = "[Error: Transcript hidden in Fullscreen]";
                     captionText.style.color = "red";
-                } else if (!hasEverFoundIcon) {
+                } else {
                     captionText.innerText = "[Waiting for active icon...]";
                     captionText.style.color = "orange";
                 }
