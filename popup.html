@@ -4,7 +4,11 @@
     <style>
         body {
             width: 200px;
+            height: 400px;
             padding: 15px;
+            border: 1px solid #ccc; 
+            margin: 0;
+            box-sizing: border-box;
             font-family: sans-serif;
             background-color: #f9f9f9;
             text-align: center;
@@ -16,20 +20,57 @@
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 12px;
             width: 100%;
             transition: background 0.2s;
         }
         button:hover {
             background-color: #005a9e;
         }
+        
     </style>
 </head>
 <body>
     <h3>Echo360 Captions</h3>
     <button id="toggleBtn">Toggle Visibility</button>
 
-    <!-- We must link the logic script here! -->
+    <label for="fontSelect" style="font-size: 12px; margin-top: 10px; display: block;">Font</label>
+    <select id="fontSelect" style="width: 100%; margin: 4px 0 8px; padding: 4px;">
+        <option value="Arial, sans-serif" selected>Arial</option>
+        <option value="'Times New Roman', serif">Times New Roman</option>
+        <option value="'Courier New', monospace">Courier New</option>
+        <option value="Georgia, serif">Georgia</option>
+        <option value="Verdana, sans-serif">Verdana</option>
+    </select>
+
+    <label for="fontColourSelect" style="font-size: 12px; margin-top: 10px; display: block;">Font Colour</label>
+    <select id="fontColourSelect" style="width: 100%; margin: 4px 0 8px; padding: 4px;">
+        <option value="white" selected>White</option>
+        <option value="black">Black</option>
+        <option value="yellow">Yellow</option>
+        <option value="cyan">Cyan</option>
+        <option value="lime">Lime</option>
+    </select>
+
+    <label for="fontSizeSelect" style="font-size: 12px; margin-top: 10px; display: block;">Font Size</label>
+    <select id="fontSizeSelect" style="width: 100%; margin: 8px 0; padding: 4px;">
+        <option value="12">50%</option>
+        <option value="18">75%</option>
+        <option value="24" selected>100%</option>
+        <option value="36">150%</option>
+        <option value="48">200%</option>
+        <option value="72">300%</option>
+    </select>
+
+    <label for="bgColourSelect" style="font-size: 12px; margin-top: 10px; display: block;">Background Colour</label>
+    <select id="bgColourSelect" style="width: 100%; margin: 4px 0 8px; padding: 4px;">
+        <option value="transparent">Transparent</option>
+        <option value="black" >Black</option>
+        <option value="rgba(0,0,0,0.6)" selected>Semi-transparent</option>
+        <option value="white">White</option>
+        <option value="navy">Navy</option>
+    </select>
+        
     <script src="popup.js"></script>
 </body>
 </html>
