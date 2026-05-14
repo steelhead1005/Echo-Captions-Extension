@@ -1,3 +1,4 @@
+const browser = window.browser || window.chrome;
 const toggleBtn = document.getElementById('toggleBtn');
 const fontSelect = document.getElementById('fontSelect');
 const fontColourSelect = document.getElementById('fontColourSelect');
@@ -49,14 +50,14 @@ bgColourSelect.addEventListener('change', () => {
 
 // Send all current settings to the content script
 function sendUpdate() {
-    browser.tabs.query({ active: true, currentWindow: true })
-        .then((tabs) => {
-            browser.tabs.sendMessage(tabs[0].id, {
-                action: 'updateStyles',
-                fontFamily:      fontSelect.value,
-                fontColour:      fontColourSelect.value,
-                fontSizePercent: fontSizeSelect.value,
-                bgColour:        bgColourSelect.value,
-            });
+    const api = window.browser || window.chrome;
+    api.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        api.tabs.sendMessage(tabs[0].id, {
+            action: 'updateStyles',
+            fontFamily:      fontSelect.value,
+            fontColour:      fontColourSelect.value,
+            fontSizePercent: fontSizeSelect.value,
+            bgColour:        bgColourSelect.value,
         });
+    });
 }

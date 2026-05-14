@@ -1,4 +1,5 @@
 (function() {
+    const browser = window.browser || window.chrome;
     'use strict';
     function openTranscriptPanel() {
         // Try to find and click the transcript button
@@ -70,15 +71,13 @@
             captionText.style.backgroundColor = currentStyles.bgColour;
         }
 
-        browser.storage.sync.get(['fontFamily', 'fontColour', 'fontSizePercent', 'bgColour'])
-        .then((result) => {
+        (window.browser || window.chrome).storage.sync.get(['fontFamily', 'fontColour', 'fontSizePercent', 'bgColour'], (result) => {
             if (result.fontFamily)      currentStyles.fontFamily      = result.fontFamily;
             if (result.fontColour)      currentStyles.fontColour      = result.fontColour;
             if (result.fontSizePercent) currentStyles.fontSizePercent = result.fontSizePercent;
             if (result.bgColour)        currentStyles.bgColour        = result.bgColour;
             applyStyles();
         });
-
         captionText.innerText = "[Waiting to sync...]"; 
 
         captionBox.appendChild(captionText);
