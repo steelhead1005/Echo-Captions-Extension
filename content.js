@@ -86,9 +86,27 @@
                  captionText.style.color = "red";
             }
         }, 250); 
+        
+        let isVisible = true;
+
+        // Listen for messages from the popup menu
+         browser.runtime.onMessage.addListener((message) => {
+        if (message.command === "toggle_captions") {
+            isVisible = !isVisible;
+            
+            // Use CSS display to completely hide or show the caption box
+            if (isVisible) {
+                captionBox.style.display = 'block';
+            } else {
+                captionBox.style.display = 'none';
+            }
+        }
+    });
     }
 
     // Kick off the loop when the script runs
     initCaptions();
+    
 
 })();
+
